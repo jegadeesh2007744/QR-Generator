@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>QR Code Generator</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <header class="site-header">
+    <span class="header-icon">▣</span>
+    <span class="header-title">QR Studio</span>
+  </header>
+
+  <main class="main">
+    <section class="hero">
+      <h1>QR Code Generator</h1>
+      <p>Turn any text or URL into a scannable QR code — free, instant, no sign-up</p>
+    </section>
+
+    <div class="card">
+
+      <!-- Input -->
+      <div class="field">
+        <label for="txt">Text or URL</label>
+        <textarea id="txt" rows="3" placeholder="https://example.com  or  any text…" spellcheck="false"></textarea>
+      </div>
+
+      <!-- Options row -->
+      <div class="options">
+        <div class="field">
+          <label for="size">Size (px)</label>
+          <select id="size">
+            <option value="128">128</option>
+            <option value="192">192</option>
+            <option value="256" selected>256</option>
+            <option value="320">320</option>
+            <option value="400">400</option>
+            <option value="512">512</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="ecc">Error Correction</label>
+          <select id="ecc">
+            <option value="L">L – Low (7%)</option>
+            <option value="M" selected>M – Medium (15%)</option>
+            <option value="Q">Q – Quartile (25%)</option>
+            <option value="H">H – High (30%)</option>
+          </select>
+        </div>
+
+        <div class="field color-field">
+          <label>Colors</label>
+          <div class="color-row">
+            <label class="color-label">
+              <input type="color" id="darkC" value="#000000"/>
+              <span>Dark</span>
+            </label>
+            <label class="color-label">
+              <input type="color" id="lightC" value="#ffffff"/>
+              <span>Light</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn-generate" id="genBtn">Generate QR Code</button>
+    </div>
+
+    <!-- Output -->
+    <div class="result hidden" id="result">
+      <div class="qr-box" id="qrBox"></div>
+      <div class="result-actions">
+        <button class="btn-action primary" id="btnPng">⬇ Download PNG</button>
+        <button class="btn-action" id="btnSvg">⬇ Download SVG</button>
+        <button class="btn-action" id="btnCopy">📋 Copy Image</button>
+      </div>
+      <p class="copy-status" id="copyStatus"></p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    100% client-side · No data uploaded · Works offline
+  </footer>
+
+  <script src="qrcode.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
